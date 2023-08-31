@@ -1,4 +1,4 @@
-const fs = require('../fs/index.js')
+const fs = require('fs')
 
 const path = require('path')
 const { DatabaseObject } = require('./object.js')
