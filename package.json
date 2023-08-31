@@ -2,5 +2,8 @@
   "name": "@brtmvdl/database",
   "version": "0.2.0",
   "main": "src/index.js",
-  "bin": "bin/index.js"
+  "bin": "bin/index.js",
+  "dependencies": {
+    "@brtmvdl/uuid": "^0.2.0"
+  }
 }
