@@ -1,6 +1,8 @@
-const fs = require('fs')
+const { v4: uuid } = require('@brtmvdl/uuid')
 
+const fs = require('fs')
 const path = require('path')
+
 const { DatabaseObject } = require('./object.js')
 
 class Database {
@@ -14,8 +16,8 @@ class Database {
     return new Database(path.resolve(this.path, dir))
   }
 
-  new() {
-    return new DatabaseObject(this)
+  new(id = uuid()) {
+    return new DatabaseObject(this, id)
   }
 
   list() {
