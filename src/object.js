@@ -1,7 +1,7 @@
 const { Database } = require('./database')
 const { v4: uuid } = require('@brtmvdl/uuid')
 
-const fs = require('fs')
+const fs = require('./libs/fs/index.js')
 const path = require('path')
 
 class DatabaseObject {
