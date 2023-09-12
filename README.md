@@ -1,5 +1,7 @@
 # @brtmvdl/database
 
+Easy database Node.js library
+
 ## install
 
 ```bash
