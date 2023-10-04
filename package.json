@@ -5,5 +5,12 @@
   "bin": "bin/index.js",
   "dependencies": {
     "@brtmvdl/uuid": "^0.2.0"
-  }
+  },
+  "description": "Easy Database Node.js library",
+  "homepage": "https://github.com/brtmvdl/database#readme",
+  "url": "https://github.com/brtmvdl/database/issues",
+  "funding": "https://opencollective.com/brtmvdl-database",
+  "author": "Tarsis Lima (https://github.com/brtmvdl)",
+  "repository": "github:brtmvdl/database",
+  "license": "MIT"
 }
