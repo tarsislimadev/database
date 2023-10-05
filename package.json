@@ -1,15 +1,14 @@
 {
   "name": "@brtmvdl/database",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "main": "src/index.js",
   "bin": "bin/index.js",
   "dependencies": {
     "@brtmvdl/uuid": "^0.2.0"
   },
   "description": "Easy Database Node.js library",
-  "homepage": "https://github.com/brtmvdl/database#readme",
   "url": "https://github.com/brtmvdl/database/issues",
-  "funding": "https://opencollective.com/brtmvdl-database",
+  "funding": "https://link.mercadopago.com.br/brtmvdl",
   "author": "Tarsis Lima (https://github.com/brtmvdl)",
   "repository": "github:brtmvdl/database",
   "license": "MIT"
