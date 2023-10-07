@@ -10,23 +10,11 @@ Easy Database Node.js library
 
 ## install
 
-```bash
-npm i @brtmvdl/database
-```
+[![npm i](./images/npm-i-database.png)](https://www.npmjs.com/package/@brtmvdl/database)
 
 ## how to use
 
-```js
-const { Database } = require('@brtmvdl/database')
-
-const db = new Database(process.env.DATA_PATH)
-
-const users = db.in('users')
-
-const user = users.new()
-
-user.writeMany({ email: 'mail@mail.com', password: 'password' })
-```
+[![index.js](./images/database-index-js.png)](./sample/index.js)
 
 ## license
 
