@@ -31,6 +31,8 @@ user.writeMany({ email: 'mail@mail.com', password: 'password' })
 ```
 
 ```sh
+# bash
+
 node index.js
 ```
 
