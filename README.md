@@ -10,7 +10,9 @@ Easy Database Node.js library
 
 ## install
 
-```sh
+```bash
+# bash
+
 npm i @brtmvdl/database
 ```
 
