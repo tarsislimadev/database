@@ -1,6 +1,6 @@
 {
   "name": "@brtmvdl/database",
-  "version": "0.6.8",
+  "version": "1.0.0",
   "main": "src/index.js",
   "bin": "bin/index.js",
   "dependencies": {
