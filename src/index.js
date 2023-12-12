@@ -1,3 +1,4 @@
-const { Database } = require('./database.js')
-const { DatabaseObject } = require('./object.js')
-module.exports = { Database, DatabaseObject, }
+module.exports = {
+  ...require('./database.js'),
+  ...require('./object.js'),
+}

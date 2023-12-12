@@ -1,19 +1,37 @@
 const { v4: uuid } = require('@brtmvdl/uuid')
 
-const fs = require('fs')
+const fs = require('./libs/fs/index.js')
 const path = require('path')
 
 const { DatabaseObject } = require('./object.js')
 
 class Database {
-  path = ''
+  type = 'fs'
+  config = process.env.DATA_PATH
 
-  constructor(path = process.env.DATA_PATH) {
-    this.path = path
+  constructor({
+    type = this.type,
+    config = this.config,
+  } = {}) {
+    this.type = type
+    this.config = config
+  }
+
+  setType() {
+    this.type = type
+    return this
+  }
+
+  setConfig(config = null) {
+    this.config = config
+    return this
   }
 
   in(dir = '') {
-    return new Database(path.resolve(this.path, dir))
+    return new Database({
+      type: this.type,
+      config: path.resolve(this.config, dir)
+    })
   }
 
   new(id = uuid()) {
@@ -21,13 +39,17 @@ class Database {
   }
 
   list() {
-    const { path: dir } = this
-    return fs.readDirSync(dir).map((path) => new DatabaseObject(dir, path))
+    return fs.readdirSync(this.config).map((path) => new DatabaseObject(this, path))
   }
 
   find(search = {}) {
     return this.list().find((_, ix) => ix === 0)
   }
+
+  findById(id) {
+    return this.list().find((data) => data.id == id)
+  }
+
 }
 
 module.exports = {
