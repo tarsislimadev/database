@@ -21,9 +21,9 @@ npm i @brtmvdl/database
 ```js
 // index.js
 
-const { Database } = require('@brtmvdl/database')
+import { Database } from '@brtmvdl/database'
 
-const db = new Database(process.env.DATA_PATH)
+const db = new Database({ type: 'fs', config: '/data' })
 
 const users = db.in('users')
 
