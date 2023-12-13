@@ -9,9 +9,19 @@ class DatabaseObject {
   id = null
   timestamp = null
 
-  constructor(database = new Database(), id = uuid()) {
+  constructor(database = new Database(), id = uuid(), timestamp = null) {
     this.db = database
     this.id = id
+    this.setTimestamp(timestamp)
+  }
+
+  setId(id = uuid()) {
+    this.id = id
+    return this
+  }
+
+  getId() {
+    return this.id
   }
 
   setTimestamp(timestamp = null) {
@@ -20,11 +30,9 @@ class DatabaseObject {
   }
 
   getTimestamp() {
-    if (this.timestamp != null) {
-      return this.timestamp
-    }
-
-    return Date.now()
+    return this.timestamp != null
+      ? this.timestamp.toString()
+      : Date.now()
   }
 
   getID() {
@@ -40,9 +48,11 @@ class DatabaseObject {
   }
 
   write(key, value = '') {
-    const now = this.getTimestamp()
-    const filename = path.resolve(this.getPath(), [key, now].join('.'))
-    fs.writeFileSync(filename, value)
+    const pathname = this.getPath()
+    const filename = key + '.' + this.getTimestamp()
+    const filepathname = path.resolve(pathname, filename)
+
+    fs.writeFileSync(filepathname, value)
     return this
   }
 
