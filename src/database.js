@@ -1,23 +1,18 @@
 const { v4: uuid } = require('@brtmvdl/uuid')
-
 const fs = require('./libs/fs/index.js')
 const path = require('path')
-
 const { DatabaseObject } = require('./object.js')
 
 class Database {
   type = 'fs'
   config = process.env.DATA_PATH
-  timestamp = null
 
   constructor({
     type = this.type,
     config = this.config,
-    timestamp = this.timestamp,
   } = {}) {
     this.type = type
     this.config = config
-    this.timestamp = timestamp
   }
 
   setType() {
@@ -38,36 +33,19 @@ class Database {
     return this.config
   }
 
-  setTimestamp(timestamp = null) {
-    this.timestamp = timestamp
-    return this
-  }
-
-  getTimestamp() {
-    if (this.timestamp != null) {
-      return this.timestamp
-    }
-
-    return Date.now()
-  }
-
   in(dir = '') {
     const { config, type } = this
-    return new Database({
-      config: path.resolve(config, dir),
-      timestamp: this.getTimestamp(),
-      type,
-    })
+    return new Database({ config: path.resolve(config, dir), type, })
   }
 
   new(id = uuid()) {
-    return new DatabaseObject(this, id, this.getTimestamp())
+    return new DatabaseObject(this, id)
   }
 
   list() {
     return fs
       .readdirSync(this.config)
-      .map((path) => new DatabaseObject(this, path, this.getTimestamp()))
+      .map((path) => new DatabaseObject(this, path))
   }
 
   find(search = {}) {
