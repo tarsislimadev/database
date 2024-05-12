@@ -51,7 +51,7 @@ class Database {
   find(search = {}) {
     return this.list().find((data) =>
       Object.keys(search).every((key) =>
-        data.readString(key).toString() == search[key].toString()
+        data.readString(key)?.toString() == search[key]?.toString()
       )
     )
   }
