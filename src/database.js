@@ -48,6 +48,10 @@ class Database {
       .map((path) => new DatabaseObject(this, path))
   }
 
+  listJSON () {
+    return this.list().map((obj) => obj.toJSON())
+  }
+
   find(search = {}) {
     return this.list().find((data) =>
       Object.keys(search).every((key) =>
