@@ -19,7 +19,7 @@ npm i @brtmvdl/database
 ## how to use
 
 ```js
-// index.js
+// index.mjs
 
 import { Database } from '@brtmvdl/database'
 
@@ -37,7 +37,7 @@ console.log('user', user.readManyString(['email', 'password']))
 ```sh
 # bash
 
-node index.js
+node index.mjs
 ```
 
 ## license
