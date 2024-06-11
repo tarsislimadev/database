@@ -40,6 +40,10 @@ console.log('user', user.readManyString(['email', 'password']))
 node index.mjs
 ```
 
+## author
+
+[Tarsis Lima](https://www.linkedin.com/in/brtmvdl/)
+
 ## license
 
 [MIT](./LICENSE)
